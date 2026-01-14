@@ -7,7 +7,7 @@ import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 const shell = require("shelljs");
 const tmpDir = tmpdir();
-const targetDir = await mkdtemp(`${join(tmpDir, "test-akashic-cli_")}`);
+const targetDir = await mkdtemp(`${join(tmpDir, "test-cli_")}`);
 
 
 process.on("exit", () => {

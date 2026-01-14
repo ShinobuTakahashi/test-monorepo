@@ -1,7 +1,7 @@
 {
   "name": "@takahashi/test-cli-export",
   "version": "1.0.0",
-  "description": "A module to convert your Akashic game to a runnable standalone.",
+  "description": "test-export.",
   "type": "module",
   "scripts": {
     "prepublish": "npm run clean && npm run build",
