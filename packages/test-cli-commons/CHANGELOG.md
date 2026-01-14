@@ -1,5 +1,11 @@
 # @takahashi/test-cli-commons
 
+## 1.0.4
+
+### Patch Changes
+
+- 022a931: for test
+
 ## 1.0.3
 
 ### Patch Changes
