@@ -23,9 +23,11 @@ const rootRenamePackageLockPath = path.resolve(process.cwd(), "..", "..", "_pack
 const packageJsonPath = path.resolve(process.cwd(), "package.json");
 const lockFilePath = path.resolve(process.cwd(), "..", "..", "publish.lock");
 const cliPackageJsonPath = path.resolve(process.cwd(), "..", "test-cli", "package.json");
+const logsDirPath = path.resolve(process.cwd(), "..", "..", "logs");
 
 let fd; // filedescriptor
 let isError = false;
+let logs = [];
 
 /**
  * 各パッケージの package.json の dependencies/devDependencies から akashic 系を削除する
@@ -120,6 +122,7 @@ async function generateShrinkwrapJson() {
     const pkgJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
     pkgName = pkgJson.name;
     console.log(`--------------- ${pkgName} generateShrinkwrapJson start ---`);
+    logs.push(`--------------- ${pkgName} generateShrinkwrapJson start ---`);
 
     // バージョン取得用
     const cliPkgJson = JSON.parse(fs.readFileSync(cliPackageJsonPath, "utf-8"));
@@ -157,7 +160,7 @@ async function generateShrinkwrapJson() {
     dt.setDate(dt.getDate() - BEFORE_DAYS);
     const formattedDate = formatDate(dt);
     // akashic-cli-xxxxx は publish 日付が直前の可能性があり、--before <date> で引っかかるため package.json から削除し後でインストールする
-    const akashicModules = removeAkashicDependencies(packageJsonPath);
+    // const akashicModules = removeAkashicDependencies(packageJsonPath);
 
     // if (pkgName == "@takahashi/test-cli-serve") {
     //   // serve で @akashic 系を削除してインストールした場合、`npm run setup` の処理で落ちる。環境変数の値を設定し処理をスキップさせる。 
@@ -166,6 +169,7 @@ async function generateShrinkwrapJson() {
 
     const npmInstallCmd = `npm i --before ${formattedDate}`;
     console.log(`- exec: "${npmInstallCmd}"`);
+    logs.push(`- exec: "${npmInstallCmd}"`);
     execSync(npmInstallCmd, { stdio: "inherit" });
 /*
     if (akashicModules.dependencies.length) {
@@ -192,16 +196,23 @@ async function generateShrinkwrapJson() {
 */
     const npmShrinkwrapCmd = "npm shrinkwrap";
     console.log(`- exec: "${npmShrinkwrapCmd}"`);
+    logs.push(`- exec: "${npmShrinkwrapCmd}"`);
     execSync(npmShrinkwrapCmd, { stdio: "inherit" });
 
   } catch (err) {
     console.error("--- Error:", err);
+    logs.push("--- Error:", err);
     isError = true;
   } finally {
     if (fs.existsSync(rootRenamePackageJsonPath)) fs.renameSync(rootRenamePackageJsonPath, rootPackageJsonPath);
     if (fs.existsSync(rootRenamePackageLockPath)) fs.renameSync(rootRenamePackageLockPath, rootPackageLockPath);
 
     console.log(`------------ ${pkgName}  end ------------`);
+    logs.push(`------------ ${pkgName}  end ------------`);
+    if (!fs.existsSync(logsDirPath)) fs.mkdirSync(logsDirPath);
+    const text = logs.join("\n");
+    const fileName = pkgName.replaceAll("/", "_");
+    fs.writeFileSync(`${logsDirPath}/${fileName}.log`, text, "utf-8");
   }
 }
 
