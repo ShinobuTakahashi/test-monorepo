@@ -1,5 +1,11 @@
 # @takahashi/test-cli-extra
 
+## 1.0.5
+
+### Patch Changes
+
+- a8940e1: error test
+
 ## 1.0.4
 
 ### Patch Changes
