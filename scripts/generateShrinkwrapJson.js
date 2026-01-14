@@ -127,8 +127,7 @@ async function generateShrinkwrapJson() {
     // バージョン取得用
     const cliPkgJson = JSON.parse(fs.readFileSync(cliPackageJsonPath, "utf-8"));
     // 依存モジュールが publish 済みかポーリングして確認
-    // TODO: 以下の各 packages の waitPublish() を removeAkashicDependencies().dependencies から /^@akashic\/akashic-cli-/ にマッチするものを待つようにする
-/*    
+    
     if (pkgName !== "@shinobu_takahashi/test-cli-commons") {
       // commons 依存
       const version = cliPkgJson.dependencies["@shinobu_takahashi/test-cli-commons"];
@@ -139,17 +138,7 @@ async function generateShrinkwrapJson() {
       const version = cliPkgJson.dependencies["@shinobu_takahashi/test-cli-extra"];
       await waitPublish("@shinobu_takahashi/test-cli-extra", version);
     }
-    if (pkgName === "@shinobu_takahashi/test-cli-serve") {
-      // scan 依存: [serve]
-      const version = cliPkgJson.dependencies["@shinobu_takahashi/test-cli-scan"];
-      await waitPublish("@shinobu_takahashi/test-cli-scan", version);
-    }
-    if (pkgName === "@shinobu_takahashi/test-cli-init") {
-      // extra 依存: [init]
-      const version = cliPkgJson.dependencies["@shinobu_takahashi/test-cli-extra"];
-      await waitPublish("@shinobu_takahashi/test-cli-extra", version);
-    }
-*/
+
     fd = await waitLockFile();
 
     // モノレポの制御を外すため package.json, package-lock.json をリネーム
