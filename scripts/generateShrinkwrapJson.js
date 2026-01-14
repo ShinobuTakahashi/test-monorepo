@@ -128,16 +128,16 @@ async function generateShrinkwrapJson() {
     const cliPkgJson = JSON.parse(fs.readFileSync(cliPackageJsonPath, "utf-8"));
     // 依存モジュールが publish 済みかポーリングして確認
     
-    if (pkgName !== "@shinobu_takahashi/test-cli-commons") {
-      // commons 依存
-      const version = cliPkgJson.dependencies["@shinobu_takahashi/test-cli-commons"];
-      await waitPublish("@shinobu_takahashi/test-cli-commons", version);
-    }
-    if (pkgName === "@shinobu_takahashi/test-cli-export") {
-      // extra 依存
-      const version = cliPkgJson.dependencies["@shinobu_takahashi/test-cli-extra"];
-      await waitPublish("@shinobu_takahashi/test-cli-extra", version);
-    }
+    // if (pkgName !== "@shinobu_takahashi/test-cli-commons") {
+    //   // commons 依存
+    //   const version = cliPkgJson.dependencies["@shinobu_takahashi/test-cli-commons"];
+    //   await waitPublish("@shinobu_takahashi/test-cli-commons", version);
+    // }
+    // if (pkgName === "@shinobu_takahashi/test-cli-export") {
+    //   // extra 依存
+    //   const version = cliPkgJson.dependencies["@shinobu_takahashi/test-cli-extra"];
+    //   await waitPublish("@shinobu_takahashi/test-cli-extra", version);
+    // }
 
     fd = await waitLockFile();
 
@@ -159,7 +159,8 @@ async function generateShrinkwrapJson() {
     const npmInstallCmd = `npm i --before ${formattedDate}`;
     console.log(`- exec: "${npmInstallCmd}"`);
     logs.push(`- exec: "${npmInstallCmd}"`);
-    execSync(npmInstallCmd, { stdio: "inherit" });
+    let cmdResult = execSync(npmInstallCmd, { stdio: "inherit" });
+    logs.push(cmdResult);
 /*
     if (akashicModules.dependencies.length) {
       const installList = [];
@@ -186,7 +187,8 @@ async function generateShrinkwrapJson() {
     const npmShrinkwrapCmd = "npm shrinkwrap";
     console.log(`- exec: "${npmShrinkwrapCmd}"`);
     logs.push(`- exec: "${npmShrinkwrapCmd}"`);
-    execSync(npmShrinkwrapCmd, { stdio: "inherit" });
+    cmdResult = execSync(npmShrinkwrapCmd, { stdio: "inherit" });
+    logs.push(cmdResult);
 
   } catch (err) {
     console.error("--- Error:", err);
