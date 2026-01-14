@@ -161,6 +161,17 @@ async function generateShrinkwrapJson() {
     logs.push(`- exec: "${npmInstallCmd}"`);
     let cmdResult = execSync(npmInstallCmd, { encoding: "utf8" });
     logs.push(cmdResult);
+
+
+    if (pkgName === "@shinobu_takahashi/test-cli-export") {
+      const errCmd = "npm i @akashic/akashic-engine@3.21.2 --before 2025-09-10";
+      console.log(`- exec: "${errCmd}"`);
+      logs.push(`- exec: "${errCmd}"`);
+      const errResult = execSync(errCmd, { encoding: "utf8" });
+      console.log("=== errResult:", result);
+      logs.push(errResult);
+    }
+
 /*
     if (akashicModules.dependencies.length) {
       const installList = [];
@@ -200,10 +211,11 @@ async function generateShrinkwrapJson() {
 
     console.log(`------------ ${pkgName}  end ------------`);
     logs.push(`------------ ${pkgName}  end ------------`);
-    if (!fs.existsSync(logsDirPath)) fs.mkdirSync(logsDirPath);
-    const text = logs.join("\n");
-    const fileName = pkgName.replaceAll("/", "_");
-    fs.writeFileSync(`${logsDirPath}/${fileName}.log`, text, "utf-8");
+    if (isError) {
+      if (!fs.existsSync(logsDirPath)) fs.mkdirSync(logsDirPath);
+      const fileName = pkgName.replaceAll("/", "_");
+      fs.writeFileSync(`${logsDirPath}/${fileName}.log`, logs.join("\n"), "utf-8");
+   }
   }
 }
 
