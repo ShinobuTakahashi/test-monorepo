@@ -22,7 +22,7 @@ const rootPackageLockPath = path.resolve(process.cwd(), "..", "..", "package-loc
 const rootRenamePackageLockPath = path.resolve(process.cwd(), "..", "..", "_package-lock.json");
 const packageJsonPath = path.resolve(process.cwd(), "package.json");
 const lockFilePath = path.resolve(process.cwd(), "..", "..", "publish.lock");
-const cliPackageJsonPath = path.resolve(process.cwd(), "..", "akashic-cli", "package.json");
+const cliPackageJsonPath = path.resolve(process.cwd(), "..", "test-cli", "package.json");
 
 let fd; // filedescriptor
 let isError = false;
@@ -125,6 +125,7 @@ async function generateShrinkwrapJson() {
     const cliPkgJson = JSON.parse(fs.readFileSync(cliPackageJsonPath, "utf-8"));
     // 依存モジュールが publish 済みかポーリングして確認
     // TODO: 以下の各 packages の waitPublish() を removeAkashicDependencies().dependencies から /^@akashic\/akashic-cli-/ にマッチするものを待つようにする
+/*    
     if (pkgName !== "@takahashi/test-cli-commons") {
       // commons 依存
       const version = cliPkgJson.dependencies["@takahashi/test-cli-commons"];
@@ -145,7 +146,7 @@ async function generateShrinkwrapJson() {
       const version = cliPkgJson.dependencies["@takahashi/test-cli-extra"];
       await waitPublish("@takahashi/test-cli-extra", version);
     }
-
+*/
     fd = await waitLockFile();
 
     // モノレポの制御を外すため package.json, package-lock.json をリネーム
@@ -158,15 +159,15 @@ async function generateShrinkwrapJson() {
     // akashic-cli-xxxxx は publish 日付が直前の可能性があり、--before <date> で引っかかるため package.json から削除し後でインストールする
     const akashicModules = removeAkashicDependencies(packageJsonPath);
 
-    if (pkgName == "@takahashi/test-cli-serve") {
-      // serve で @akashic 系を削除してインストールした場合、`npm run setup` の処理で落ちる。環境変数の値を設定し処理をスキップさせる。 
-      process.env.SKIP_SETUP = true;
-    }
+    // if (pkgName == "@takahashi/test-cli-serve") {
+    //   // serve で @akashic 系を削除してインストールした場合、`npm run setup` の処理で落ちる。環境変数の値を設定し処理をスキップさせる。 
+    //   process.env.SKIP_SETUP = true;
+    // }
 
     const npmInstallCmd = `npm i --before ${formattedDate}`;
     console.log(`- exec: "${npmInstallCmd}"`);
     execSync(npmInstallCmd, { stdio: "inherit" });
-
+/*
     if (akashicModules.dependencies.length) {
       const installList = [];
       for (const module of akashicModules.dependencies) {
@@ -188,7 +189,7 @@ async function generateShrinkwrapJson() {
       console.log(`- exec: "${akashicInstallCmd}"`);
       execSync(akashicInstallCmd);
     }
-
+*/
     const npmShrinkwrapCmd = "npm shrinkwrap";
     console.log(`- exec: "${npmShrinkwrapCmd}"`);
     execSync(npmShrinkwrapCmd, { stdio: "inherit" });

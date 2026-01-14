@@ -27,15 +27,10 @@ async function runScriptInPackage(pkgName, pkgPath) {
 async function runAllScriptsInParallel() {
     console.log("======================= start =====================", new Date().toLocaleTimeString());
     const packageDirs = [
-        "akashic-cli-commons",
-        "akashic-cli-serve",
-        "akashic-cli-export",
-        "akashic-cli-extra",
-        "akashic-cli-init",
-        "akashic-cli-lib-manage",
-        "akashic-cli-sandbox",
-        "akashic-cli-scan",
-       
+        "test-cli-commons",
+        "test-cli-export",
+        "test-cli-extra",
+        "test-cli-init"
     ];
 
     const executionPromises = packageDirs.map(pkgName => {

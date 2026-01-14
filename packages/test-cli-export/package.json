@@ -16,8 +16,7 @@
     "url": "https://github.com/ShinobuTakahashi/test-monorepo.git",
     "directory": "packages/test-cli-export"
   },
-  "bin": {
-  },
+  "bin": {},
   "files": [
     "lib",
     "npm-shrinkwrap.json"
@@ -27,8 +26,7 @@
     "shx": "0.3.4",
     "typescript": "5.6.2"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "publishConfig": {
     "access": "public"
   }

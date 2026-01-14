@@ -36,8 +36,7 @@
     "lib",
     "npm-shrinkwrap.json"
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "18.19.130",
     "rimraf": "3.0.2",

@@ -12,7 +12,8 @@
     "test:published": "node test/e2e.js",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release-packages": "changeset publish"
+    "release-packages": "changeset publish",
+    "hoge": "node ./scripts/_start.js"
   },
   "license": "MIT",
   "repository": {
