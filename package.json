@@ -1,0 +1,42 @@
+{
+  "private": true,
+  "name": "@takahashi/test-cli",
+  "version": "0.0.1",
+  "description": "test monorepo",
+  "type": "module",
+  "scripts": {
+    "postinstall": "npm run build",
+    "build": "nx run-many -t build",
+    "test": "npm run test:nx && node test/e2e.js --local",
+    "test:nx": "nx run-many -t test",
+    "test:published": "node test/e2e.js",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release-packages": "changeset publish",
+    "hoge": "node ./scripts/_start.js"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShinobuTakahashi/test-monorepo.git"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "overrides": {
+    "vite": {
+      "rollup": "npm:@rollup/wasm-node"
+    }
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.5",
+    "get-port": "^7.1.0",
+    "nx": "^20.3.1",
+    "ps-tree": "^1.2.0",
+    "remark-cli": "^10.0.1",
+    "shelljs": "^0.8.5"
+  }
+}

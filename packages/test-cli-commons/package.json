@@ -1,0 +1,47 @@
+{
+  "name": "@takahashi/test-cli-commons",
+  "version": "1.0.0",
+  "description": "test-commons",
+  "type": "module",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./lib/index.js"
+      }
+    },
+    "./lib/*": {
+      "import": {
+        "types": "./lib/*",
+        "default": "./lib/*"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "prepublish": "npm run clean && npm run build",
+    "clean": "shx rm -rf lib",
+    "build": "tsc -p ./",
+    "test": "echo \"--- test commons ---\"",
+    "prepublishOnly": "node ../../scripts/generateShrinkwrapJson.js"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShinobuTakahashi/test-monorepo.git",
+    "directory": "packages/test-cli-commons"
+  },
+  "files": [
+    "lib",
+    "npm-shrinkwrap.json"
+  ],
+  "devDependencies": {
+    "@types/node": "20.14.15",
+    "@types/resolve": "^1.20.6",
+    "typescript": "5.5.4"
+  },
+  "dependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
+}

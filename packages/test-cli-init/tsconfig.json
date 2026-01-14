@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "lib": ["ES2015"],
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "./lib",
+    "declaration": true,
+    "sourceMap": true,
+    "types" : ["node"],
+    "strict": true,
+    "useUnknownInCatchVariables": false
+  },
+  "files": [
+    "./src/index.ts"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "@takahashi/test-cli-export",
+  "version": "1.0.0",
+  "description": "test-export.",
+  "type": "module",
+  "scripts": {
+    "prepublish": "npm run clean && npm run build",
+    "clean": "shx rm -rf lib && shx rm -rf spec/build",
+    "build": "tsc -p ./",
+    "test": "echo \"--- test export ---\"",
+    "prepublishOnly": "node ../../scripts/generateShrinkwrapJson.js"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShinobuTakahashi/test-monorepo.git",
+    "directory": "packages/test-cli-export"
+  },
+  "bin": {},
+  "files": [
+    "lib",
+    "npm-shrinkwrap.json"
+  ],
+  "devDependencies": {
+    "@types/node": "22.2.0",
+    "shx": "0.3.4",
+    "typescript": "5.6.2"
+  },
+  "dependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
+}

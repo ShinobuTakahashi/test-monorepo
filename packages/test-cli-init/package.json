@@ -1,0 +1,33 @@
+{
+  "name": "@takahashi/test-cli-init",
+  "version": "1.0.0",
+  "description": "init.",
+  "type": "module",
+  "scripts": {
+    "prepublish": "npm run clean && npm run build",
+    "clean": "rimraf ./lib",
+    "build": "tsc -p ./",
+    "test": "echo \"--- test init ---\"",
+    "prepublishOnly": "node ../../scripts/generateShrinkwrapJson.js"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShinobuTakahashi/test-monorepo.git",
+    "directory": "packages/test-cli-init"
+  },
+  "files": [
+    "lib",
+    "npm-shrinkwrap.json"
+  ],
+  "devDependencies": {
+    "@types/node": "20.14.14",
+    "rimraf": "3.0.2",
+    "typescript": "5.5.4"
+  },
+  "dependencies": {
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
