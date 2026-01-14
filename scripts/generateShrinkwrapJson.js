@@ -129,25 +129,25 @@ async function generateShrinkwrapJson() {
     // 依存モジュールが publish 済みかポーリングして確認
     // TODO: 以下の各 packages の waitPublish() を removeAkashicDependencies().dependencies から /^@akashic\/akashic-cli-/ にマッチするものを待つようにする
 /*    
-    if (pkgName !== "@takahashi/test-cli-commons") {
+    if (pkgName !== "@shinobu_takahashi/test-cli-commons") {
       // commons 依存
-      const version = cliPkgJson.dependencies["@takahashi/test-cli-commons"];
-      await waitPublish("@takahashi/test-cli-commons", version);
+      const version = cliPkgJson.dependencies["@shinobu_takahashi/test-cli-commons"];
+      await waitPublish("@shinobu_takahashi/test-cli-commons", version);
     }
-    if (pkgName === "@takahashi/test-cli-export") {
+    if (pkgName === "@shinobu_takahashi/test-cli-export") {
       // extra 依存
-      const version = cliPkgJson.dependencies["@takahashi/test-cli-extra"];
-      await waitPublish("@takahashi/test-cli-extra", version);
+      const version = cliPkgJson.dependencies["@shinobu_takahashi/test-cli-extra"];
+      await waitPublish("@shinobu_takahashi/test-cli-extra", version);
     }
-    if (pkgName === "@takahashi/test-cli-serve") {
+    if (pkgName === "@shinobu_takahashi/test-cli-serve") {
       // scan 依存: [serve]
-      const version = cliPkgJson.dependencies["@takahashi/test-cli-scan"];
-      await waitPublish("@takahashi/test-cli-scan", version);
+      const version = cliPkgJson.dependencies["@shinobu_takahashi/test-cli-scan"];
+      await waitPublish("@shinobu_takahashi/test-cli-scan", version);
     }
-    if (pkgName === "@takahashi/test-cli-init") {
+    if (pkgName === "@shinobu_takahashi/test-cli-init") {
       // extra 依存: [init]
-      const version = cliPkgJson.dependencies["@takahashi/test-cli-extra"];
-      await waitPublish("@takahashi/test-cli-extra", version);
+      const version = cliPkgJson.dependencies["@shinobu_takahashi/test-cli-extra"];
+      await waitPublish("@shinobu_takahashi/test-cli-extra", version);
     }
 */
     fd = await waitLockFile();
@@ -162,7 +162,7 @@ async function generateShrinkwrapJson() {
     // akashic-cli-xxxxx は publish 日付が直前の可能性があり、--before <date> で引っかかるため package.json から削除し後でインストールする
     // const akashicModules = removeAkashicDependencies(packageJsonPath);
 
-    // if (pkgName == "@takahashi/test-cli-serve") {
+    // if (pkgName == "@shinobu_takahashi/test-cli-serve") {
     //   // serve で @akashic 系を削除してインストールした場合、`npm run setup` の処理で落ちる。環境変数の値を設定し処理をスキップさせる。 
     //   process.env.SKIP_SETUP = true;
     // }
