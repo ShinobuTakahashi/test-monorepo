@@ -1,5 +1,11 @@
 # @takahashi/test-cli-commons
 
+## 1.0.6
+
+### Patch Changes
+
+- a8940e1: error test
+
 ## 1.0.5
 
 ### Patch Changes
