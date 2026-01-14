@@ -1,6 +1,6 @@
 {
   "name": "@takahashi/test-cli-commons",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "test-commons",
   "type": "module",
   "types": "./lib/index.d.ts",
