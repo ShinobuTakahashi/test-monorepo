@@ -1,6 +1,6 @@
 {
   "name": "@shinobu_takahashi/test-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "test-cli",
   "type": "module",
   "scripts": {
@@ -14,10 +14,10 @@
     "lib"
   ],
   "dependencies": {
-    "@shinobu_takahashi/test-cli-commons": "1.0.2",
-    "@shinobu_takahashi/test-cli-export": "1.0.2",
-    "@shinobu_takahashi/test-cli-extra": "1.0.1",
-    "@shinobu_takahashi/test-cli-init": "1.0.1"
+    "@shinobu_takahashi/test-cli-commons": "1.0.3",
+    "@shinobu_takahashi/test-cli-export": "1.0.3",
+    "@shinobu_takahashi/test-cli-extra": "1.0.2",
+    "@shinobu_takahashi/test-cli-init": "1.0.2"
   },
   "devDependencies": {
     "@types/node": "^20.16.9",
