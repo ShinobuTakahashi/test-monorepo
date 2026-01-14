@@ -1,5 +1,11 @@
 # @takahashi/test-cli-export
 
+## 1.0.5
+
+### Patch Changes
+
+- 801da18: test
+
 ## 1.0.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @takahashi/test-cli-extra
 
+## 1.0.4
+
+### Patch Changes
+
+- 801da18: test
+
 ## 1.0.3
 
 ### Patch Changes
