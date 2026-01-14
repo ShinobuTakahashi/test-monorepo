@@ -1,5 +1,11 @@
 # @takahashi/test-cli-commons
 
+## 1.0.3
+
+### Patch Changes
+
+- 6e3ac5d: bump patch
+
 ## 1.0.2
 
 ### Patch Changes
