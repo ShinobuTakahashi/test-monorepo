@@ -1,5 +1,11 @@
 # @takahashi/test-cli-extra
 
+## 1.0.6
+
+### Patch Changes
+
+- 0d11953: error test
+
 ## 1.0.5
 
 ### Patch Changes
