@@ -1,5 +1,11 @@
 # @takahashi/test-cli-init
 
+## 1.0.10
+
+### Patch Changes
+
+- 5065dfc: for test
+
 ## 1.0.9
 
 ### Patch Changes

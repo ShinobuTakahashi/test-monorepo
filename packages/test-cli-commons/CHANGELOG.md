@@ -1,5 +1,11 @@
 # @takahashi/test-cli-commons
 
+## 1.0.11
+
+### Patch Changes
+
+- 5065dfc: for test
+
 ## 1.0.10
 
 ### Patch Changes
