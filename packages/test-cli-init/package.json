@@ -1,6 +1,6 @@
 {
   "name": "@shinobu_takahashi/test-cli-init",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "init.",
   "type": "module",
   "scripts": {

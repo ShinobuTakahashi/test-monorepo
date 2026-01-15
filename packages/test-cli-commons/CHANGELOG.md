@@ -1,5 +1,11 @@
 # @takahashi/test-cli-commons
 
+## 1.0.10
+
+### Patch Changes
+
+- c5cbaea: test
+
 ## 1.0.9
 
 ### Patch Changes

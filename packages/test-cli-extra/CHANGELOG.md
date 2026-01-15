@@ -1,5 +1,11 @@
 # @takahashi/test-cli-extra
 
+## 1.0.9
+
+### Patch Changes
+
+- c5cbaea: test
+
 ## 1.0.8
 
 ### Patch Changes
