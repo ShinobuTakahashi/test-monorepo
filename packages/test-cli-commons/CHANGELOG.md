@@ -1,5 +1,11 @@
 # @takahashi/test-cli-commons
 
+## 1.0.8
+
+### Patch Changes
+
+- 2251166: normal end
+
 ## 1.0.7
 
 ### Patch Changes

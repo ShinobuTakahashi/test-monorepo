@@ -1,5 +1,11 @@
 # @takahashi/test-cli-extra
 
+## 1.0.7
+
+### Patch Changes
+
+- 2251166: normal end
+
 ## 1.0.6
 
 ### Patch Changes
