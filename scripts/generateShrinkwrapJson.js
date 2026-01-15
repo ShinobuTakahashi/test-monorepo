@@ -163,6 +163,7 @@ async function generateShrinkwrapJson() {
     logs.push(cmdResult);
 
 
+    // エラー確認用
     if (pkgName === "@shinobu_takahashi/test-cli-export") {
       const errCmd = "npm i @akashic/akashic-engine@3.21.2 --before 2025-09-10";
       console.log(`- exec: "${errCmd}"`);
