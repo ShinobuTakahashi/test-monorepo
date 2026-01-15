@@ -159,7 +159,7 @@ async function generateShrinkwrapJson() {
     const npmInstallCmd = `npm i --before ${formattedDate}`;
     console.log(`- exec: "${npmInstallCmd}"`);
     logs.push(`- exec: "${npmInstallCmd}"`);
-    let cmdResult = execSync(npmInstallCmd, { stdio: "inherit", encoding: "utf8" });
+    let cmdResult = execSync(npmInstallCmd, { encoding: "utf8" });
     logs.push(cmdResult);
 
 
@@ -182,7 +182,7 @@ async function generateShrinkwrapJson() {
       }
       const akashicInstallCmd = `npm i --save-exact ${installList.join(" ")}`;
       console.log(`- exec: "${akashicInstallCmd}"`);
-      execSync(akashicInstallCmd, { stdio: "inherit" });
+      execSync(akashicInstallCmd, { encoding: "utf8" });
     }
 
     if (akashicModules.devDependencies.length) {
@@ -199,7 +199,7 @@ async function generateShrinkwrapJson() {
     const npmShrinkwrapCmd = "npm shrinkwrap";
     console.log(`- exec: "${npmShrinkwrapCmd}"`);
     logs.push(`- exec: "${npmShrinkwrapCmd}"`);
-    cmdResult = execSync(npmShrinkwrapCmd, { stdio: "inherit", encoding: "utf8" });
+    cmdResult = execSync(npmShrinkwrapCmd, { encoding: "utf8" });
     logs.push(cmdResult);
 
   } catch (err) {
