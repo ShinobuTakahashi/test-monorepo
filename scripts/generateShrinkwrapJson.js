@@ -212,11 +212,11 @@ async function generateShrinkwrapJson() {
 
     console.log(`------------ ${pkgName}  end ------------`);
     logs.push(`------------ ${pkgName}  end ------------`);
-    if (isError) {
-      if (!fs.existsSync(logsDirPath)) fs.mkdirSync(logsDirPath);
-      const fileName = pkgName.replaceAll("/", "_");
-      fs.writeFileSync(`${logsDirPath}/${fileName}.log`, logs.join("\n"), "utf-8");
-   }
+    // if (isError) {
+    if (!fs.existsSync(logsDirPath)) fs.mkdirSync(logsDirPath);
+    const fileName = pkgName.replaceAll("/", "_");
+    fs.writeFileSync(`${logsDirPath}/${fileName}.log`, logs.join("\n"), "utf-8");
+  //  }
   }
 }
 
