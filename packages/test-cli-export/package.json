@@ -1,6 +1,6 @@
 {
   "name": "@shinobu_takahashi/test-cli-export",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "test-export.",
   "type": "module",
   "scripts": {

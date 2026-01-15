@@ -1,5 +1,11 @@
 # @takahashi/test-cli-commons
 
+## 1.0.7
+
+### Patch Changes
+
+- 0d11953: error test
+
 ## 1.0.6
 
 ### Patch Changes
