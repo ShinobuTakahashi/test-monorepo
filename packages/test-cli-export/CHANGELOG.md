@@ -1,5 +1,11 @@
 # @takahashi/test-cli-export
 
+## 1.0.12
+
+### Patch Changes
+
+- 6ea4826: for test
+
 ## 1.0.11
 
 ### Patch Changes
