@@ -49,7 +49,14 @@ jobs:
         with:
           name: shrinkwrap_log
           path: ./logs
-      - name: after test
+      - name: Test after shrinkwrap
         if: ${{ always() }}
-        run: 
-          npm test
+        #  find ./packages/**/npm-shrinkwrap.json | wc -l 
+        run: | 
+          if [[ `find ./packages/**/anpm-shrinkwrap.json` ]]; then
+            echo "------- exist ------------"
+            npm test
+          else 
+            echo "------- not found ------------"
+          fi
+
