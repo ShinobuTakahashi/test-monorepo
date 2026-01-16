@@ -1,5 +1,11 @@
 # @takahashi/test-cli-init
 
+## 1.0.12
+
+### Patch Changes
+
+- 291908d: test
+
 ## 1.0.11
 
 ### Patch Changes
