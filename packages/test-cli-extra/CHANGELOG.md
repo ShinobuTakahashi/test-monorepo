@@ -1,5 +1,11 @@
 # @takahashi/test-cli-extra
 
+## 1.0.11
+
+### Patch Changes
+
+- bbd974f: for test
+
 ## 1.0.10
 
 ### Patch Changes
