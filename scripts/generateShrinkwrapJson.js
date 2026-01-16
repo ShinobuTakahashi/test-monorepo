@@ -202,6 +202,12 @@ async function generateShrinkwrapJson() {
     cmdResult = execSync(npmShrinkwrapCmd, { encoding: "utf8" });
     logs.push(cmdResult);
 
+    // const testCmd = "npm run test";
+    // console.log(`- exec: "${testCmd}"`);
+    // logs.push(`- exec: "${testCmd}"`);
+    // cmdResult = execSync(testCmd, { encoding: "utf8" });
+    // logs.push(cmdResult);
+
   } catch (err) {
     console.error("--- Error:", err);
     logs.push("--- Error:", err);

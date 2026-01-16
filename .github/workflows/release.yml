@@ -49,3 +49,7 @@ jobs:
         with:
           name: shrinkwrap_log
           path: ./logs
+      - name: after test
+        if: ${{ always() }}
+        run: 
+          npm test
