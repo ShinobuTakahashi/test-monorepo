@@ -53,7 +53,7 @@ jobs:
         if: ${{ always() }}
         #  find ./packages/**/npm-shrinkwrap.json | wc -l 
         run: | 
-          if [[ `find ./packages/**/anpm-shrinkwrap.json` ]]; then
+          if [[ `find ./packages/**/npm-shrinkwrap.json` ]]; then
             echo "------- exist ------------"
             npm test
           else 
