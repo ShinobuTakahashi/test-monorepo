@@ -1,5 +1,14 @@
 # @takahashi/test-cli
 
+## 1.0.15
+
+### Patch Changes
+
+- Updated dependencies [f0ac0f1]
+  - @shinobu_takahashi/test-cli-commons@1.0.15
+  - @shinobu_takahashi/test-cli-export@1.0.15
+  - @shinobu_takahashi/test-cli-extra@1.0.13
+
 ## 1.0.14
 
 ### Patch Changes

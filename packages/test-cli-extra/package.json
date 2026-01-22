@@ -1,6 +1,6 @@
 {
   "name": "@shinobu_takahashi/test-cli-extra",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "test-extra",
   "type": "module",
   "types": "./lib/index.d.ts",
