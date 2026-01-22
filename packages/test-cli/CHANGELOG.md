@@ -1,5 +1,15 @@
 # @takahashi/test-cli
 
+## 1.0.16
+
+### Patch Changes
+
+- Updated dependencies [dacb640]
+  - @shinobu_takahashi/test-cli-commons@1.0.16
+  - @shinobu_takahashi/test-cli-export@1.0.16
+  - @shinobu_takahashi/test-cli-extra@1.0.14
+  - @shinobu_takahashi/test-cli-init@1.0.13
+
 ## 1.0.15
 
 ### Patch Changes
