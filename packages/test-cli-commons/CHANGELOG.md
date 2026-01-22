@@ -1,5 +1,11 @@
 # @takahashi/test-cli-commons
 
+## 1.0.16
+
+### Patch Changes
+
+- dacb640: for test
+
 ## 1.0.15
 
 ### Patch Changes
