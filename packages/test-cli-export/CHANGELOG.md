@@ -1,5 +1,11 @@
 # @takahashi/test-cli-export
 
+## 1.0.15
+
+### Patch Changes
+
+- f0ac0f1: fix release.yml
+
 ## 1.0.14
 
 ### Patch Changes

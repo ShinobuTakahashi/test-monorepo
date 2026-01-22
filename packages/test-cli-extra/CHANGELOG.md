@@ -1,5 +1,11 @@
 # @takahashi/test-cli-extra
 
+## 1.0.13
+
+### Patch Changes
+
+- f0ac0f1: fix release.yml
+
 ## 1.0.12
 
 ### Patch Changes
