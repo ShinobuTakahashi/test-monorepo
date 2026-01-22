@@ -50,6 +50,7 @@ jobs:
           name: shrinkwrap_log
           path: ./logs_shrinkwrap
       - name: Test after shrinkwrap
+        if: ${{ always() }}
         run: | 
           if [[ `find ./packages/**/npm-shrinkwrap.json` ]]; then
             echo "------- shrinkwrapa.json exist ------------"
