@@ -1,5 +1,11 @@
 # @takahashi/test-cli-extra
 
+## 1.0.15
+
+### Patch Changes
+
+- 0b8b4c2: for test
+
 ## 1.0.14
 
 ### Patch Changes
