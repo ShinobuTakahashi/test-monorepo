@@ -53,12 +53,16 @@ jobs:
       - name: Extract version and add tag
         if: ${{ always() }}
         run: |
-          VERSION=`jq -r .version packages/test-cli/package.json`
-          echo "---version: $VERSION"
-          git checkout -b published_$VERSION
-          git commit -am "Add tags after publishde $VERSION"
-          git tag -a $VERSION
-          git push origin $VERSION
+          npm run hoge
+          if [[ `find ./packages/**/npm-shrinkwrap.json` ]]; then
+            VERSION=`jq -r .version packages/test-cli/package.json`
+            echo "---version: $VERSION"
+            git checkout -b published_$VERSION
+            git add .
+            git commit -m "Add tags after publishde $VERSION"
+            git tag -a $VERSION
+            git push origin $VERSION
+          fi
       - name: Test after shrinkwrap
         if: ${{ always() }}
         run: | 
