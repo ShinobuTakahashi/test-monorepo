@@ -60,8 +60,7 @@ jobs:
             git checkout -b published_$VERSION
             git add .
             git commit -m "Add tags after published $VERSION"
-            echo "--- commit end "
-            git tag -a $VERSION
+            git tag -a $VERSION -m "v$VERSION"
             echo "--- tag end "
             git push origin $VERSION
             echo "--- push end "
