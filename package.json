@@ -14,7 +14,7 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release-packages": "changeset publish",
-    "hoge": "node ./scripts/_start.js"
+    "gen-shrinkwarp": "node ./scripts/_start.js"
   },
   "license": "MIT",
   "repository": {
