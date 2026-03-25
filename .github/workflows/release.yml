@@ -54,11 +54,12 @@ jobs:
           npm run gen-shrinkwarp
           if [[ `find ./packages/**/npm-shrinkwrap.json` ]]; then
             VERSION=`jq -r .version packages/test-cli/package.json`
-
+            echo "---version: $VERSION"
+            # persist-credentials:false で認証情報が消されているので設定
             git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}"
             git config user.name 'github-actions'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            echo "---version: $VERSION"
+
             git checkout -b tag_$VERSION
             git add .
             git commit -m "Add tags after published $VERSION"
