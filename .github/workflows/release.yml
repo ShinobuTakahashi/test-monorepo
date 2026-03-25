@@ -63,15 +63,15 @@ jobs:
             git checkout -b tag_$VERSION
             git add .
             git commit -m "Add tags after published $VERSION"
-            git tag -a test1_v$VERSION -m "tag_$VERSION"
-            git push origin test1_v$VERSION
+            git tag -a test2_v$VERSION -m "tag_$VERSION"
+            git push origin test2_v$VERSION
             echo "--- tag push end "
             
             git remote rm origin
             echo "--- rm remote "
-            git config unset --global user.name
+            git config unset user.name
             echo "--- rm name "
-            git config unset --global user.email
+            git config unset user.email
             echo "--- rm email "
           fi
         env:
