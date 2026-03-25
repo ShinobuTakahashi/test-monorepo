@@ -54,18 +54,20 @@ jobs:
           npm run gen-shrinkwarp
           if [[ `find ./packages/**/npm-shrinkwrap.json` ]]; then
             VERSION=`jq -r .version packages/test-cli/package.json`
+            git config user.name 'github-actions'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
             echo "---version: $VERSION"
             git checkout -b published_$VERSION
-            echo "--- checkout end "
             git add .
-            echo "--- add end "
-            git commit -m "Add tags after publishde $VERSION"
+            git commit -m "Add tags after published $VERSION"
             echo "--- commit end "
             git tag -a $VERSION
             echo "--- tag end "
             git push origin $VERSION
             echo "--- push end "
           fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Test after shrinkwrap
         if: ${{ always() }}
         run: | 
