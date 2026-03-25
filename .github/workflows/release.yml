@@ -25,8 +25,7 @@ jobs:
         with:
           # CHANGELOG の差分を適切に生成するため明示的にすべての履歴を取得
           fetch-depth: 0
-          # persist-credentials: false
-          # token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: false
       - name: Setup Node
         uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
         with:
@@ -55,18 +54,25 @@ jobs:
           npm run gen-shrinkwarp
           if [[ `find ./packages/**/npm-shrinkwrap.json` ]]; then
             VERSION=`jq -r .version packages/test-cli/package.json`
+            echo "---version: $VERSION"
+            # persist-credentials:false で認証情報が消されているので設定
+            git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}"
             git config user.name 'github-actions'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            echo "---version: $VERSION"
+
             git checkout -b tag_$VERSION
             git add .
             git commit -m "Add tags after published $VERSION"
-            git tag -a v1_$VERSION -m "tag_$VERSION"
+            git tag -a test_v$VERSION -m "tag_$VERSION"
             echo "------- tag list --- "
             git tag -l
             echo "-------------------- "
-            git push origin v1_$VERSION
+            git push origin test_v$VERSION
             echo "--- push end "
+            
+            git remote rm origin
+            git config unset --global user.email
+            git config unset --global user.name
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
