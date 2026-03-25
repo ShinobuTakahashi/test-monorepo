@@ -49,13 +49,12 @@ jobs:
         with:
           name: shrinkwrap_log
           path: ./logs_shrinkwrap
-      - name: Add tag after shrinkwrap
+      - name: Push tag after shrinkwrap
         run: |
           npm run gen-shrinkwarp
           if [[ `find ./packages/**/npm-shrinkwrap.json` ]]; then
             VERSION=`jq -r .version packages/test-cli/package.json`
-            echo "---version:$VERSION"
-            # persist-credentials:false で認証情報が消されているので設定
+            # checkout の persist-credentials:false で認証情報が消されているので設定
             git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}"
             git config user.name 'github-actions'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
@@ -63,16 +62,14 @@ jobs:
             git checkout -b tag_$VERSION
             git add .
             git commit -m "Add tags after published $VERSION"
-            git tag -a test2_v$VERSION -m "tag_$VERSION"
-            git push origin test2_v$VERSION
+            git tag -a v$VERSION -m "tag $VERSION"
+            git push origin v$VERSION
             echo "--- tag push end "
             
             git remote rm origin
-            echo "--- rm remote "
             git config unset user.name
-            echo "--- rm name "
             git config unset user.email
-            echo "--- rm email "
+            echo "-------- tag end ------"
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
