@@ -35,13 +35,13 @@ jobs:
         run: |
           npm ci
           npm test
-      - name: Create Release PullRequest or Publish
-        uses: changesets/action@e0145edc7d9d8679003495b11f87bd8ef63c0cba # v1.5.3
-        with:
-          publish: npm run release-packages
-          version: npm run version-packages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Create Release PullRequest or Publish
+      #   uses: changesets/action@e0145edc7d9d8679003495b11f87bd8ef63c0cba # v1.5.3
+      #   with:
+      #     publish: npm run release-packages
+      #     version: npm run version-packages
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Archive artifact
         if: ${{ failure() }}
         # if: ${{ always() }}
@@ -50,17 +50,21 @@ jobs:
           name: shrinkwrap_log
           path: ./logs_shrinkwrap
       - name: Extract version and add tag
-        if: ${{ always() }}
         run: |
-          npm run hoge
+          npm run gen-shrinkwarp
           if [[ `find ./packages/**/npm-shrinkwrap.json` ]]; then
             VERSION=`jq -r .version packages/test-cli/package.json`
             echo "---version: $VERSION"
             git checkout -b published_$VERSION
+            echo "--- checkout end "
             git add .
+            echo "--- add end "
             git commit -m "Add tags after publishde $VERSION"
+            echo "--- commit end "
             git tag -a $VERSION
+            echo "--- tag end "
             git push origin $VERSION
+            echo "--- push end "
           fi
       - name: Test after shrinkwrap
         if: ${{ always() }}
