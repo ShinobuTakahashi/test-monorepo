@@ -51,6 +51,7 @@ jobs:
           name: shrinkwrap_log
           path: ./logs_shrinkwrap
       - name: Extract version and add tag
+        if: ${{ always() }}
         run: |
           VERSION=`jq -r .version packages/test-cli/package.json`
           echo "---version: $VERSION"
