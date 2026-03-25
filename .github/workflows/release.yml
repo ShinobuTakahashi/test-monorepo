@@ -51,27 +51,13 @@ jobs:
           name: shrinkwrap_log
           path: ./logs_shrinkwrap
       - name: Extract version and add tag
-        # uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b #v7.1.0
-        # with:
-        #   script: |
-        #     const { execSync } = require('child_process');
-        #     const version = execSync('npm view @shinobu_takahashi/test-cli version --json ').toString().trim();
-        #     console.log(`- version: ${version}`);
-        #     // タグ付け
-        #     execSync(`git tag ver${version} ${process.env.GITHUB_SHA}`);
-        #     execSync(`git tag ver${version} ${process.env.GITHUB_SHA}`);
-        #     execSync(`git push origin ver${version}`);
         run: |
-          if [[ `find ./packages/**/npm-shrinkwrap.json` ]]; then
-            PKG_VERSION=`jq -r .version packages/test-cli/package.json`
-            echo "---version: $PKG_VERSION"
-            git checkout -b published_$PKG_VERSION
-            git commit -am "Add tags after publishde $PKG_VERSION"
-            git tag -a $PKG_VERSION
-            git push origin $PKG_VERSION
-          fi
-
-
+          VERSION=`jq -r .version packages/test-cli/package.json`
+          echo "---version: $VERSION"
+          git checkout -b published_$VERSION
+          git commit -am "Add tags after publishde $VERSION"
+          git tag -a $VERSION
+          git push origin $VERSION
       - name: Test after shrinkwrap
         if: ${{ always() }}
         run: | 
