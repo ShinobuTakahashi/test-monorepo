@@ -25,7 +25,7 @@ async function runScriptInPackage(pkgName, pkgPath) {
 }
 
 async function runAllScriptsInParallel() {
-    console.log("======================= start =====================", new Date().toLocaleTimeString());
+    console.log("======================= start =====================");
     const packageDirs = [
         "test-cli-commons",
         "test-cli-export",
@@ -45,7 +45,7 @@ async function runAllScriptsInParallel() {
         switch (result.status) {
             case "SUCCESS":
                 console.log(`[${result.pkgName}] ✅ success`);
-                console.log(`* stdout:`, result.stdout);
+                // console.log(`* stdout:`, result.stdout);
                 break;
             case "FAILED":
                 console.error(`[${result.pkgName}] ❌ faild:`);
@@ -56,7 +56,7 @@ async function runAllScriptsInParallel() {
         }
     });
 
-    console.log("======================= End =======================", new Date().toLocaleTimeString());
+    console.log("======================= End =======================");
 }
 
 runAllScriptsInParallel();
