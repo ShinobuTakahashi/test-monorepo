@@ -62,8 +62,8 @@ jobs:
             git checkout -b tag_$VERSION
             git add .
             git commit -m "Add tags after published $VERSION"
-            git tag -a v$VERSION -m "tag $VERSION"
-            git push origin v$VERSION
+            git tag -a test_v$VERSION -m "tag $VERSION"
+            git push origin test_v$VERSION
             echo "--- tag push end "
             
             git remote rm origin
