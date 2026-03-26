@@ -1,6 +1,6 @@
 {
   "name": "@shinobu_takahashi/test-cli",
-  "version": "1.0.17.beta-2",
+  "version": "1.0.17.beta-3",
   "description": "test-cli",
   "type": "module",
   "scripts": {
