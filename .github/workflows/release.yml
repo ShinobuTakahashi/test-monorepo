@@ -51,7 +51,7 @@ jobs:
           path: ./logs_shrinkwrap
       - name: generate shrinkwrap
         run: |
-          npm run gen-shrinkwar
+          npm run gen-shrinkwarp
       - name: Push tag after shrinkwrap
         run: |
           if [[ `find ./packages/**/npm-shrinkwrap.json` ]]; then
