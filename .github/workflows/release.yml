@@ -49,9 +49,11 @@ jobs:
         with:
           name: shrinkwrap_log
           path: ./logs_shrinkwrap
+      - name: generate shrinkwrap
+        run: |
+          npm run gen-shrinkwar
       - name: Push tag after shrinkwrap
         run: |
-          npm run gen-shrinkwarp
           if [[ `find ./packages/**/npm-shrinkwrap.json` ]]; then
             VERSION=`jq -r .version packages/test-cli/package.json`
             # checkout の persist-credentials:false で認証情報が消されるので設定し処理後削除
@@ -69,7 +71,6 @@ jobs:
             git config unset user.name
             git config unset user.email
           fi
-
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Test after shrinkwrap
