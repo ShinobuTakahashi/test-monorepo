@@ -1,0 +1,52 @@
+{
+  "name": "@shinobu_takahashi/test-cli-commons",
+  "version": "1.0.16",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "name": "@shinobu_takahashi/test-cli-commons",
+      "version": "1.0.16",
+      "license": "MIT",
+      "devDependencies": {
+        "@types/node": "20.14.15",
+        "@types/resolve": "^1.20.6",
+        "typescript": "5.5.4"
+      }
+    },
+    "node_modules/@types/node": {
+      "version": "20.14.15",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "undici-types": "~5.26.4"
+      }
+    },
+    "node_modules/@types/resolve": {
+      "version": "1.20.6",
+      "resolved": "https://registry.npmjs.org/@types/resolve/-/resolve-1.20.6.tgz",
+      "integrity": "sha512-A4STmOXPhMUtHH+S6ymgE2GiBSMqf4oTvcQZMcHzokuTLVYzXTB8ttjcgxOVaAp2lGwEdzZ0J+cRbbeevQj1UQ==",
+      "dev": true,
+      "license": "MIT"
+    },
+    "node_modules/typescript": {
+      "version": "5.5.4",
+      "dev": true,
+      "license": "Apache-2.0",
+      "bin": {
+        "tsc": "bin/tsc",
+        "tsserver": "bin/tsserver"
+      },
+      "engines": {
+        "node": ">=14.17"
+      }
+    },
+    "node_modules/undici-types": {
+      "version": "5.26.5",
+      "resolved": "https://registry.npmjs.org/undici-types/-/undici-types-5.26.5.tgz",
+      "integrity": "sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==",
+      "dev": true,
+      "license": "MIT"
+    }
+  }
+}
